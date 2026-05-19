@@ -7,14 +7,13 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
-  // Proxy endpoint to bypass CORS for audio files
+  
   app.get("/api/proxy", async (req, res) => {
     let url = req.query.url as string;
     if (!url) {
       return res.status(400).send("URL is required");
     }
 
-    // Auto-convert GitHub blob URLs to raw URLs
     if (url.includes("github.com") && url.includes("/blob/")) {
       url = url.replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/");
       console.log("Converted GitHub URL to raw:", url);
@@ -30,10 +29,10 @@ async function startServer() {
           "Accept": "audio/*, video/*, */*",
         },
         timeout: 20000,
-        maxContentLength: 50 * 1024 * 1024, // 50MB limit
+        maxContentLength: 50 * 1024 * 1024, 
       });
 
-      // Forward relevant headers
+
       const contentType = response.headers["content-type"];
       if (contentType) {
         res.setHeader("Content-Type", contentType.toString());

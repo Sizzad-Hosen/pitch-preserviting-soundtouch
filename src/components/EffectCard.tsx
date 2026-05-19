@@ -1,17 +1,7 @@
 import React from 'react';
 import { Sliders, RotateCcw, Activity } from 'lucide-react';
+import { ControlCardProps } from '../helpers/interface';
 
-interface ControlCardProps {
-  label: string;
-  value: string;
-  icon: React.ReactNode;
-  min: number;
-  max: number;
-  step: number;
-  currentValue: number;
-  onChange: (val: number) => void;
-  onReset: () => void;
-}
 
 export const EffectCard = ({ label, value, icon, min, max, step, currentValue, onChange, onReset }: ControlCardProps) => (
   <div className="bg-white border border-slate-100 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all group">
