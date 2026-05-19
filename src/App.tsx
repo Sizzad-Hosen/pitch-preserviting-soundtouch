@@ -130,16 +130,16 @@ export default function App() {
               <SkipBack />
             </button>
 
-            <button
-              onClick={togglePlay}
-              className="w-20 h-20 bg-indigo-600 text-white rounded-full"
-            >
-              {isPlaying ? <Pause /> : <Play />}
-            </button>
-
+       <button
+          onClick={togglePlay}
+          className="w-20 h-20 bg-indigo-600 text-white rounded-full flex items-center justify-center"
+        >
+          {isPlaying ? <Pause className="w-8 h-8" /> : <Play className="w-8 h-8" />}
+        </button>
             <button onClick={() => seek(currentTime + 10)}>
               <SkipForward />
             </button>
+
           </div>
 
           {/* volume */}
